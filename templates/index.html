@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Segmentation Stripplots asjd</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f4; }
+    h1, h2 { color: #333; }
+    img { max-width: 100%; height: auto; margin-bottom: 30px; border: 1px solid #ccc; border-radius: 8px; }
+    input[type="file"] { padding: 10px; }
+    button { margin-top: 10px; padding: 10px 20px; background: #28a745; color: white; border: none; cursor: pointer; }
+    button:hover { background: #218838; }
+  </style>
+</head>
+<body>
+  <h1>Upload Customer CSV</h1>
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".csv" required>
+    <br><br>
+    <button type="submit">Upload & Generate Stripplots</button>
+  </form>
+
+  {% if amount_img %}
+    <h2>Amount vs Cluster</h2>
+    <img src="{{ amount_img }}" alt="Amount Stripplot">
+  {% endif %}
+  
+  {% if frequency_img %}
+    <h2>Frequency vs Cluster</h2>
+    <img src="{{ frequency_img }}" alt="Frequency Stripplot">
+  {% endif %}
+
+  {% if recency_img %}
+    <h2>Recency vs Cluster</h2>
+    <img src="{{ recency_img }}" alt="Recency Stripplot">
+  {% endif %}
+</body>
+</html>
